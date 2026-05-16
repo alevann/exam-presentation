@@ -1,0 +1,84 @@
+div#slide[data-index="1"] {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+
+    img {
+        grid-column: 2;
+        grid-row: 1 / -1;
+        width: 300px;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        align-self: center;
+        justify-self: flex-start;
+        object-position: center;
+        object-fit: cover;
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+    li {
+        list-style: none;
+    }
+
+    a > svg {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+
+    a#github > svg {
+        height: 2rem;
+        width: 2rem;
+    }
+
+    div.infobox {
+        margin-right: 10%;
+        justify-self: flex-end;
+
+        &.r1 { align-self: flex-end;  }
+        &.r2 {
+            align-self: flex-start;
+            margin-top: 0.25rem;
+        }
+    }
+
+    p.subtitle {
+        color: var(--text-color-secondary);
+        font-size: 0.85rem;
+    }
+
+    @media screen and (max-width: 900px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1.5fr auto 1fr;
+
+        img {
+            grid-column: 1;
+            grid-row: 1;
+            align-self: flex-end;
+            margin-bottom: 2rem;
+        }
+
+        div.infobox {
+            margin: 0;
+        }
+
+        div.infobox, img {
+            justify-self: center;
+        }
+
+        ul {
+            justify-content: center;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        h1, p {
+            text-align: center;
+        }
+    }
+}

@@ -8,7 +8,7 @@
     ].map(response => response.then(data => data.text()))
   )
 
-  let slide = 3
+  let slide = 0
   const container = document.querySelector('#slide')
   container.dataset.index = `${slide + 1}`
   container.innerHTML = slides[slide]

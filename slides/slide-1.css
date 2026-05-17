@@ -49,7 +49,7 @@ div#slide[data-index="1"] {
 
     @media screen and (max-width: 900px) {
         grid-template-columns: 1fr;
-        grid-template-rows: 1.5fr auto 1fr;
+        grid-template-rows: 2fr auto 1fr;
 
         img {
             grid-column: 1;

@@ -97,32 +97,6 @@ button.action {
     }
 }
 
-@media screen and (max-width: 800px) {
-    body {
-        display: grid;
-        grid-template-rows: 1fr auto;
-        grid-template-columns: 1fr 1fr;
-        height: 100vh;
-    }
-
-    div#slide {
-        grid-column: 1 / -1;
-        height: 100%;
-    }
-
-    button.action {
-        position: initial;
-        align-self: center;
-        justify-self: center;
-        transform: none !important;
-        justify-content: center !important;
-        margin: 0.5rem 10%;
-
-        &#prev { justify-self: flex-start; }
-        &#next { justify-self: flex-end; }
-    }
-}
-
 div.debug.action {
     position: absolute;
     inset: 0 0 auto 0;
@@ -144,4 +118,42 @@ div.debug.action {
 p.subtitle {
     color: var(--text-color-secondary);
     font-size: 0.85rem;
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        display: grid;
+        grid-template-rows: 1fr auto auto;
+        grid-template-columns: 1fr 1fr;
+        height: 100vh;
+    }
+
+    h1 {
+        line-height: 2rem;
+    }
+
+    div#slide {
+        grid-column: 1 / -1;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    button.action {
+        position: initial;
+        align-self: center;
+        justify-self: center;
+        transform: none !important;
+        justify-content: center !important;
+        margin: 0.5rem 10%;
+
+        &#prev { justify-self: flex-start; }
+        &#next { justify-self: flex-end; }
+    }
+
+    div.debug.action {
+        position: relative;
+        grid-row: 3;
+        grid-column: 1 / -1;
+    }
 }

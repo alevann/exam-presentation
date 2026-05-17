@@ -23,7 +23,10 @@ div#slide[data-index="3"] {
     }
 
     @media screen and (max-width: 1000px) {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        padding-top: 4rem;
+        padding-bottom: 2rem;
 
         & > div.infobox {
             margin: 0 20%;
@@ -35,10 +38,6 @@ div#slide[data-index="3"] {
     }
 
     @media screen and (max-width: 650px) {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
         & > div.infobox {
             margin: 0 10%;
         }

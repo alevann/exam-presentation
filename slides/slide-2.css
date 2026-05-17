@@ -10,13 +10,19 @@ div#slide[data-index="2"] {
         margin-left: 20%;
     }
 
+    h1 {
+        margin-bottom: 2em;
+    }
+
     & > div#placeholder-column {
         grid-column: 2;
         grid-row: 1 / -1;
     }
 
     @media screen and (max-width: 900px) {
-        grid-template-rows: repeat(1, 1fr);
+        display: flex;
+        flex-direction: column;
+        padding-top: 4rem;
 
         & > div#placeholder-column {
             display: none;
@@ -28,6 +34,10 @@ div#slide[data-index="2"] {
             justify-self: center;
             align-self: center;
             margin: 0 5rem;
+        }
+
+        h1 {
+            margin-bottom: 1em;
         }
     }
 

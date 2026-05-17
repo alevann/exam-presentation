@@ -1,0 +1,45 @@
+div#slide[data-index="5"] {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+
+    h1 {
+        margin-bottom: 2em;
+    }
+
+    & > :first-child, :nth-child(2) {
+        align-self: flex-end;
+        margin-bottom: 1em;
+    }
+
+    & > div.infobox {
+        margin-left: 20%;
+    }
+
+    & > div#placeholder-column {
+        grid-column: 2;
+        grid-row: 1 / -1;
+    }
+
+    @media screen and (max-width: 1000px) {
+        grid-template-columns: 1fr;
+
+        & > div.infobox {
+            margin: 0 20%;
+        }
+
+        h1 {
+            margin-bottom: 1em;
+        }
+    }
+
+    @media screen and (max-width: 650px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        & > div.infobox {
+            margin: 0 10%;
+        }
+    }
+}

@@ -1,6 +1,5 @@
-:root {
-    --background: radial-gradient(circle at right, #f8a572, #ffabab);
-    /*--background: radial-gradient(circle at right, #e19668, #f6a7a7);*/
+html {
+    --background: radial-gradient(circle at right, lch(75.38 48.28 54.85), lch(78.41 34.41 22.79));
     --text-color: #122333;
     --text-color-secondary: #6a4d3b;
     --button-color: #ffd6d6;
@@ -8,10 +7,29 @@
     --keyword-gradient: linear-gradient(to right, lch(34% 60 19), lch(34% 80 309));
 }
 
+html.green {
+    --background: radial-gradient(circle at right, lch(76.39% 80.18 132.97), lch(92.09% 50.23 136.6));
+    --text-color: #122333;
+    --text-color-secondary: #6a4d3b;
+    --button-color: #d6ffe0;
+    --dust-color: rgb(143 241 128 / 0.36);
+    --keyword-gradient: linear-gradient(to right, lch(36.88% 54.87 133.56), lch(31.16% 44.57 124.57));
+}
+
+html.cyan {
+    --background: radial-gradient(circle at right, lch(74.33% 38.06 249.76), lch(94.22% 29.72 177.95));
+    --text-color: #122333;
+    --text-color-secondary: #7c5c27;
+    --button-color: #d6fff9;
+    --dust-color: rgb(150 251 233 / 0.33);
+    --keyword-gradient: linear-gradient(to right, lch(28.21% 117 302.22), lch(37.76% 113.51 308.3));
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: "DM Mono", monospace;
 }
 
 canvas {
@@ -21,7 +39,6 @@ canvas {
 }
 
 html {
-    font-family: "DM Mono", monospace;
     color: var(--text-color);
     overflow: hidden;
 }
@@ -36,18 +53,14 @@ p {
     font-weight: 400;
 }
 
+body {
+    background: var(--background);
+}
+
 div#slide {
     position: relative;
     width: 100vw;
     height: 100vh;
-}
-
-div#slide:before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--background);
-    z-index: -2;
 }
 
 span.keyword {
@@ -80,5 +93,49 @@ button.action {
         right: 0;
         transform: translate(50%, -50%);
         justify-content: flex-start;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        display: grid;
+        grid-template-rows: 1fr auto;
+        grid-template-columns: 1fr 1fr;
+        height: 100vh;
+    }
+
+    div#slide {
+        grid-column: 1 / -1;
+        height: 100%;
+    }
+
+    button.action {
+        position: initial;
+        align-self: center;
+        justify-self: center;
+        transform: none !important;
+        justify-content: center !important;
+        margin: 0.5rem 10%;
+
+        &#prev { justify-self: flex-start; }
+        &#next { justify-self: flex-end; }
+    }
+}
+
+div.debug.action {
+    position: absolute;
+    inset: 0 0 auto 0;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.875rem;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    background: rgb(218 248 242 / 0.18);
+    gap: 2rem;
+
+    & > button {
+        background: rgb(218 248 242 / 0.18);
+        padding: 0.25rem 0.875rem;
+        border: 1px solid color-mix(var(--text-color) 40%, transparent 60%);
+        border-radius: 4px;
     }
 }

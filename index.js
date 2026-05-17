@@ -5,10 +5,11 @@
       fetch('./slides/slide-2.html'),
       fetch('./slides/slide-3.html'),
       fetch('./slides/slide-4.html'),
+      fetch('./slides/slide-5.html'),
     ].map(response => response.then(data => data.text()))
   )
 
-  let slide = 0
+  let slide = 4
   const container = document.querySelector('#slide')
   container.dataset.index = `${slide + 1}`
   container.innerHTML = slides[slide]
@@ -23,6 +24,21 @@
     slide = --slide < 0 ? slides.length - 1 : slide
     container.dataset.index = `${slide + 1}`
     container.innerHTML = slides[slide]
+  })
+
+  document.querySelector('button#orange').addEventListener('click', () => {
+    document.documentElement.classList.remove('green', 'cyan')
+    dustCache.clear()
+  })
+  document.querySelector('button#green').addEventListener('click', () => {
+    document.documentElement.classList.remove('cyan')
+    document.documentElement.classList.add('green')
+    dustCache.clear()
+  })
+  document.querySelector('button#cyan').addEventListener('click', () => {
+    document.documentElement.classList.remove('green')
+    document.documentElement.classList.add('cyan')
+    dustCache.clear()
   })
 })()
 

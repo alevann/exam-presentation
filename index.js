@@ -6,10 +6,11 @@
       fetch('./slides/slide-3.html'),
       fetch('./slides/slide-4.html'),
       fetch('./slides/slide-5.html'),
+      fetch('./slides/slide-6.html'),
     ].map(response => response.then(data => data.text()))
   )
 
-  let slide = 4
+  let slide = 5
   const container = document.querySelector('#slide')
   container.dataset.index = `${slide + 1}`
   container.innerHTML = slides[slide]

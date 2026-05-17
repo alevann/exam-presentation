@@ -1,0 +1,21 @@
+div#slide[data-index="6"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h1 {
+        margin-bottom: 2em;
+    }
+
+    div.infobox {
+        margin-left: 10%;
+        max-width: 60%;
+    }
+
+    @media screen and (max-width: 1000px) {
+        div.infobox {
+            max-width: unset;
+            margin: 0 10%;
+        }
+    }
+}

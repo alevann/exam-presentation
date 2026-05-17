@@ -139,3 +139,8 @@ div.debug.action {
         border-radius: 4px;
     }
 }
+
+p.subtitle {
+    color: var(--text-color-secondary);
+    font-size: 0.85rem;
+}

@@ -47,11 +47,6 @@ div#slide[data-index="1"] {
         }
     }
 
-    p.subtitle {
-        color: var(--text-color-secondary);
-        font-size: 0.85rem;
-    }
-
     @media screen and (max-width: 900px) {
         grid-template-columns: 1fr;
         grid-template-rows: 1.5fr auto 1fr;

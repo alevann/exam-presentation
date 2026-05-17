@@ -26,6 +26,7 @@ div#slide[data-index="4"] {
         display: flex;
         flex-direction: column;
         padding-top: 4rem;
+        gap: 1rem;
 
         & > div.infobox {
             margin: 0 20%;

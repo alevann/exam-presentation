@@ -15,16 +15,36 @@
   container.dataset.index = `${slide + 1}`
   container.innerHTML = slides[slide]
 
-  document.querySelector('button#next').addEventListener('click', () => {
+  const next = document.querySelector('button#next')
+  const prev = document.querySelector('button#prev')
+  prev.style.display = 'none'
+
+  const updateButtonVisibility = () => {
+    if (slide === slides.length - 1) {
+      next.style.display = 'none'
+    } else {
+      next.style.display = 'flex'
+    }
+
+    if (slide === 0) {
+      prev.style.display = 'none'
+    } else {
+      prev.style.display = 'flex'
+    }
+  }
+
+  next.addEventListener('click', () => {
     slide = ++slide % slides.length
     container.dataset.index = `${slide + 1}`
     container.innerHTML = slides[slide]
+    updateButtonVisibility()
   })
 
-  document.querySelector('button#prev').addEventListener('click', () => {
+  prev.addEventListener('click', () => {
     slide = --slide < 0 ? slides.length - 1 : slide
     container.dataset.index = `${slide + 1}`
     container.innerHTML = slides[slide]
+    updateButtonVisibility()
   })
 
   const urlParams = new URLSearchParams(window.location.search);
@@ -35,6 +55,10 @@
   } else if (urlParams.has('cyan')) {
     document.documentElement.classList.add('cyan');
     dustCache.clear()
+  }
+
+  if (urlParams.has('font-size')) {
+    document.documentElement.style.fontSize = urlParams.get('font-size')
   }
 })()
 

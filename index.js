@@ -60,6 +60,10 @@
   if (urlParams.has('font-size')) {
     document.documentElement.style.fontSize = urlParams.get('font-size')
   }
+
+  if (urlParams.has('dyslexia')) {
+    document.documentElement.classList.add('dyslexia');
+  }
 })()
 
 window.addEventListener('resize', () => {

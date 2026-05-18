@@ -55,6 +55,12 @@ html {
     overflow-y: scroll;
 }
 
+html.dyslexia {
+    * {
+        font-family: Verdana, Helvetica, sans-serif;
+    }
+}
+
 h1 {
     font-weight: 500;
     letter-spacing: 2px;
@@ -141,7 +147,7 @@ p.subtitle {
         justify-content: center !important;
         margin: 0.5rem 10%;
 
-        &#prev { justify-self: flex-start; }
-        &#next { justify-self: flex-end; }
+        &#prev { justify-self: flex-start; grid-column: 1 }
+        &#next { justify-self: flex-end; grid-column: 2 }
     }
 }

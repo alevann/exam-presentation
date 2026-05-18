@@ -29,18 +29,11 @@ div#slide[data-index="4"] {
         gap: 1rem;
 
         & > div.infobox {
-            margin: 0 20%;
+            margin: 0 10%;
         }
 
         h1 {
             margin-bottom: 1em;
-        }
-    }
-
-    @media screen and (max-width: 650px) {
-
-        & > div.infobox {
-            margin: 0 10%;
         }
     }
 }

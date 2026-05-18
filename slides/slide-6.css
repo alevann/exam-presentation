@@ -13,6 +13,9 @@ div#slide[data-index="6"] {
     }
 
     @media screen and (max-width: 1000px) {
+        justify-content: flex-start;
+        padding-top: 4rem;
+
         div.infobox {
             max-width: unset;
             margin: 0 10%;

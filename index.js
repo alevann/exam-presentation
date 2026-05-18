@@ -1,16 +1,3 @@
-const setThemeURLParam = (newTheme = '') => {
-  const url = new URL(window.location.href);
-  const params = new URLSearchParams(url.search);
-
-  const allThemes = ['green', 'cyan'];
-  allThemes.forEach(theme => params.delete(theme));
-
-  const remainingParams = params.toString();
-  url.search = remainingParams ? `?${newTheme}&${remainingParams}` : newTheme === '' ? '' : `?${newTheme}`;
-
-  window.history.replaceState({}, '', url);
-}
-
 (async () => {
   const slides = await Promise.all(
     [
@@ -38,24 +25,6 @@ const setThemeURLParam = (newTheme = '') => {
     slide = --slide < 0 ? slides.length - 1 : slide
     container.dataset.index = `${slide + 1}`
     container.innerHTML = slides[slide]
-  })
-
-  document.querySelector('button#orange').addEventListener('click', () => {
-    document.documentElement.classList.remove('green', 'cyan')
-    dustCache.clear()
-    setThemeURLParam()
-  })
-  document.querySelector('button#green').addEventListener('click', () => {
-    document.documentElement.classList.remove('cyan')
-    document.documentElement.classList.add('green')
-    dustCache.clear()
-    setThemeURLParam('green')
-  })
-  document.querySelector('button#cyan').addEventListener('click', () => {
-    document.documentElement.classList.remove('green')
-    document.documentElement.classList.add('cyan')
-    dustCache.clear()
-    setThemeURLParam('cyan')
   })
 
   const urlParams = new URLSearchParams(window.location.search);

@@ -91,7 +91,6 @@ if (canvas.width < 600) {
 for (let i = 0; i < objectCount; i++) {
   const centerX = Math.random() * canvas.width * 1.5
   const centerY = Math.random() * canvas.height
-  const type = i % 3 === 0 ? 'flower' : 'dust'
 
   // Closer objects are bigger, move faster, and blur more due to speed
   const distanceFactor = Math.random(); // 0 = far background, 1 = near foreground
@@ -103,7 +102,19 @@ for (let i = 0; i < objectCount; i++) {
   const angleSpeed = (Math.random() * (0.03 - 0.01) + 0.01) * (distanceFactor * 0.2)
   const bobAmplitude = 20 * scale
 
-  objects.push({ type, centerX, centerY, scale, blur, vx, distance: distanceFactor, angle, angleSpeed, bobAmplitude })
+  objects.push({ centerX, centerY, scale, blur, vx, distance: distanceFactor, angle, angleSpeed, bobAmplitude })
+}
+
+let giantObjectCount = 3
+if (canvas.width < 1000) {
+  giantObjectCount = 2
+}
+if (canvas.width < 600) {
+  giantObjectCount = 0
+}
+
+for (let i = 0; i < giantObjectCount; i++) {
+  objects[i].scale = 20
 }
 
 objects.sort((a, b) => a.distance - b.distance)
